@@ -9,6 +9,12 @@ target/
 .settings
 .springBeans
 
+_mac
+
+codestlyes
+
+*.xml
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
