@@ -1,7 +1,14 @@
 package com.app.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
+import org.neo4j.ogm.annotation.Property;
+import org.springframework.data.annotation.Id;
+
+import javax.annotation.Generated;
+import javax.persistence.*;
+
 
 /**
  * Created by LukeMcDermott on 8/30/17.
@@ -10,28 +17,44 @@ import org.neo4j.ogm.annotation.NodeEntity;
 public class User {
 
     @GraphId
-    private Long id;
+    @Property
+    private Long graphid;
+    @Property
+    private Long appid;
+    @Property
     private String username;
+    @Property
     private String fullname;
+    @Property
     private String role;
+    @Property
     private String password;
 
     public User() {};
 
-    public User(Long id, String username, String fullname, String role, String password) {
-        this.id = id;
+    public User(Long graphid, Long appid, String username, String fullname, String role, String password) {
+        this.graphid = graphid;
+        this.appid = appid;
         this.username = username;
         this.fullname = fullname;
         this.role = role;
         this.password = password;
     }
 
-    public Long getId() {
-        return id;
+    public Long getGraphid() {
+        return graphid;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setGraphid(Long graphid) {
+        this.graphid = graphid;
+    }
+
+    public Long getAppid() {
+        return appid;
+    }
+
+    public void setAppid(Long appid) {
+        this.appid = appid;
     }
 
     public String getUsername() {
@@ -69,7 +92,8 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+                "graphid=" + graphid +
+                ", appid=" + appid +
                 ", username='" + username + '\'' +
                 ", fullname='" + fullname + '\'' +
                 ", role='" + role + '\'' +
