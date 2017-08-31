@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface UserRepository extends GraphRepository<User> {
+
+    User findUserByAppid(Long app_id);
 }

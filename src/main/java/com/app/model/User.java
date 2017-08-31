@@ -19,8 +19,11 @@ public class User {
 
     @GraphId
     @Property
-    private Long graphid;
+    //For Neo4j
+    private Long id;
+
     @Property
+    //Fot this application
     private Long appid;
     @Property
     private String username;
@@ -35,8 +38,8 @@ public class User {
 
     };
 
-    public User(Long graphid, Long appid, String username, String fullname, String role, String password) {
-        this.graphid = graphid;
+    public User(Long id, Long appid, String username, String fullname, String role, String password) {
+        this.id = id;
         this.appid = appid;
         this.username = username;
         this.fullname = fullname;
@@ -44,13 +47,9 @@ public class User {
         this.password = password;
     }
 
-    public Long getGraphid() {
-        return graphid;
-    }
+    public Long getId() { return id; }
 
-    public void setGraphid(Long graphid) {
-        this.graphid = graphid;
-    }
+    public void setId(Long id) { this.id = id; }
 
     public Long getAppid() {
         return appid;
@@ -95,7 +94,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "graphid=" + graphid +
+                "graphid=" + id +
                 ", appid=" + appid +
                 ", username='" + username + '\'' +
                 ", fullname='" + fullname + '\'' +

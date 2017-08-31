@@ -16,7 +16,6 @@ import java.util.Map;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
     UserRepository userRepository;
 
     @Autowired
@@ -24,85 +23,67 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
     }
 
-//    @Override
-//    public List<User> listAllUsers() throws Exception{
-//        List<User> users = new ArrayList<>();
-//        try {
-//            userRepository.findAll().forEach(users::add);
-//        } catch (Exception ex) {
-//            throw new Exception(ex.getMessage());
-//        }
-//        return users;
-//    }
-//
-//    @Override
-//    public User findById(Long id) throws Exception{
-//        try {
-//            return userRepository.findOne(id);
-//        } catch (Exception ex){
-//            throw new Exception("Invalid user id given");
-//        }
-//    }
-//
-//    @Override
-//    public User createUser(Map<String, Object> userJson) throws Exception {
-//        User userToCreate = new User();
-//        try {
-//            parseUserJson(userJson, userToCreate);
-//        } catch (Exception ex){
-//            throw new  Exception(ex.getMessage());
-//        }
-//        return userToCreate;
-//    }
-//
-//    @Override
-//    public User updateUser(Map<String, Object> updateJson, Long userId) throws Exception {
+    @Override
+    public User createUser(Map<String, Object> userJson) throws Exception {
+        User userToCreate = new User();
+        try {
+            parseUserJson(userJson, userToCreate);
+        } catch (Exception ex){
+            throw new  Exception(ex.getMessage());
+        }
+        return userToCreate;
+    }
+
+    @Override
+    public User updateUser(Map<String, Object> updateJson, Long userId) throws Exception {
 //        User userToUpdate = findById(userId);
-//        try {
-//            parseUserJson(updateJson, userToUpdate);
-//        } catch (Exception ex){
-//            throw new  Exception(ex.getMessage());
-//        }
-//        return userToUpdate;
-//    }
-//
-//    private User parseUserJson(Map<String, Object> userJson, User user) throws Exception {
-//        try {
-//            for (Map.Entry<String, Object> entry : userJson.entrySet()) {
-//                switch (entry.getKey()) {
-//                    case "username": {
-//                        user.setUsername((String) entry.getValue());
-//                    }
-//                    case "fullname": {
-//                        user.setFullname((String) entry.getValue());
-//                    }
-//                    case "password": {
-//                        user.setPassword((String) entry.getValue());
-//                    }
-//                    case "role": {
-//                        user.setRole((String) entry.getValue());
-//                    }
-//                }
-//            }
-//        } catch (Exception ex){
-//            throw new Exception(ex);
-//        }
-//        return userRepository.save(user);
-//    }
-//
-//    @Override
-//    public User deleteUser(Long userId) throws Exception{
+        User userToUpdate = new User();
+        try {
+            parseUserJson(updateJson, userToUpdate);
+        } catch (Exception ex){
+            throw new  Exception(ex.getMessage());
+        }
+        return userToUpdate;
+    }
+
+    private User parseUserJson(Map<String, Object> userJson, User user) throws Exception {
+        try {
+            for (Map.Entry<String, Object> entry : userJson.entrySet()) {
+                switch (entry.getKey()) {
+                    case "username": {
+                        user.setUsername((String) entry.getValue());
+                    }
+                    case "fullname": {
+                        user.setFullname((String) entry.getValue());
+                    }
+                    case "password": {
+                        user.setPassword((String) entry.getValue());
+                    }
+                    case "role": {
+                        user.setRole((String) entry.getValue());
+                    }
+                }
+            }
+        } catch (Exception ex){
+            throw new Exception(ex);
+        }
+        return userRepository.save(user);
+    }
+
+    @Override
+    public User deleteUser(Long userId) throws Exception{
 //        User userToDelete = findById(userId);
-//        if(userToDelete != null){
-//            try {
-//                userRepository.delete(userToDelete);
-//            } catch (Exception ex){
-//                throw new Exception(ex.getMessage());
-//            }
-//        } else {
-//            throw new Exception("User to delete is null");
-//        }
-//        return userToDelete;
-//    }
+        User userToDelete = new User();
+        if(userToDelete != null){
+            try {
+                userRepository.delete(userToDelete);
+            } catch (Exception ex){
+                throw new Exception(ex.getMessage());
+            }
+        } else {
+            throw new Exception("User to delete is null");
+        }
+        return userToDelete;
+    }
 
 }
