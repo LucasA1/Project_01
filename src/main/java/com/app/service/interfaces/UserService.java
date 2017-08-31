@@ -12,14 +12,14 @@ import java.util.Map;
 @Service
 public interface UserService {
 
-    List<User> listAllUsers() throws Exception;
-
-    User findById(Long id) throws Exception;
-
-    User createUser(Map<String, Object> userJson) throws Exception;
-
-    User updateUser(Map<String, Object> updateJson, Long userId) throws Exception;
-
-    User deleteUser(Long userId) throws Exception;
+//    List<User> listAllUsers() throws Exception;
+//
+//    User findById(Long id) throws Exception;
+//
+//    User createUser(Map<String, Object> userJson) throws Exception;
+//
+//    User updateUser(Map<String, Object> updateJson, Long userId) throws Exception;
+//
+//    User deleteUser(Long userId) throws Exception;
 }
 

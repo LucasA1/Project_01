@@ -2,6 +2,7 @@ package com.app.model;
 
 import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import org.neo4j.ogm.annotation.GraphId;
+import org.neo4j.ogm.annotation.Labels;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Property;
 import org.springframework.data.annotation.Id;
@@ -30,7 +31,9 @@ public class User {
     @Property
     private String password;
 
-    public User() {};
+    public User() {
+
+    };
 
     public User(Long graphid, Long appid, String username, String fullname, String role, String password) {
         this.graphid = graphid;
