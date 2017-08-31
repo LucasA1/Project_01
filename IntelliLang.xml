@@ -1,0 +1,8 @@
+<application>
+  <component name="LanguageInjectionConfiguration">
+    <injection language="AngularJS" injector-id="java">
+      <display-name>RequestMapping.consumes (org.springframework.web.bind.annotation)</display-name>
+      <place><![CDATA[psiMethod().withName("consumes").withParameters().definedInClass("org.springframework.web.bind.annotation.RequestMapping")]]></place>
+    </injection>
+  </component>
+</application>

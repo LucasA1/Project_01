@@ -9,6 +9,12 @@ target/
 .settings
 .springBeans
 
+_mac
+
+codestlyes
+
+*.xml
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
@@ -22,5 +28,3 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
-
-application.properties
