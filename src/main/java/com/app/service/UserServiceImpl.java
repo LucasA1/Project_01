@@ -24,6 +24,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User findUserByAppId(Long app_id) throws Exception {
+        try {
+           return userRepository.findUserByAppid(app_id);
+        } catch (Exception ex) {
+            throw new Exception(ex.getMessage());
+        }
+    }
+
+    @Override
     public User createUser(Map<String, Object> userJson) throws Exception {
         User userToCreate = new User();
         try {
@@ -36,8 +45,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User updateUser(Map<String, Object> updateJson, Long userId) throws Exception {
-//        User userToUpdate = findById(userId);
-        User userToUpdate = new User();
+        User userToUpdate = findUserByAppId(userId);
         try {
             parseUserJson(updateJson, userToUpdate);
         } catch (Exception ex){
@@ -72,8 +80,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User deleteUser(Long userId) throws Exception{
-//        User userToDelete = findById(userId);
-        User userToDelete = new User();
+        User userToDelete = findUserByAppId(userId);
         if(userToDelete != null){
             try {
                 userRepository.delete(userToDelete);

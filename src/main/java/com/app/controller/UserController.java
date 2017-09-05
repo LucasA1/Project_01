@@ -20,6 +20,16 @@ public class UserController {
         this.userService = userService;
     }
 
+    @RequestMapping(value="/get/{userId}", method = RequestMethod.GET)
+    @ResponseBody
+    public User getUser(@PathVariable(value = "userId")Long userId) throws Exception {
+        if (userId != null) {
+            return userService.findUserByAppId(userId);
+        } else {
+            throw new Exception("Must pass in a User Id");
+        }
+    }
+
     @RequestMapping(value="/create", method = RequestMethod.POST)
     @ResponseBody
     public User createUser(@RequestBody Map<String, Object> userJson) throws Exception{
