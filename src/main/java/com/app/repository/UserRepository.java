@@ -12,6 +12,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends GraphRepository<User> {
 
-    @Query("MATCH (user:User) WHERE user.app_id = {app_id} ")
+    @Query("MATCH (user:User) WHERE user.app_id = {app_id} RETURN user")
     User findUserByAppid(@Param("app_id") Long app_id);
 }

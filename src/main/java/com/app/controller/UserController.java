@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Created by LukeMcDermott on 7/10/17.
  */
-@RestController
+@RestController("/user")
 public class UserController {
 
     UserService userService;
