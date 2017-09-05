@@ -39,5 +39,25 @@ public class UserController {
             throw new Exception("Must pass in a json request");
         }
     }
+
+    @RequestMapping(value="/update/{userId}", method = RequestMethod.PATCH)
+    @ResponseBody
+    public User updateUser(@PathVariable(value="userId")Long userId, @RequestBody Map<String, Object> userJson) throws Exception{
+        if(userJson != null && userId != null) {
+            return userService.updateUser(userJson, userId);
+        } else {
+            throw new Exception("Must pass in a json request");
+        }
+    }
+
+    @RequestMapping(value="/delete/{userId}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public User deleteUser(@PathVariable(value="userId")Long userId) throws Exception {
+        if (userId != null) {
+            return userService.deleteUser(userId);
+        } else {
+            throw new Exception("Must pass in a User Id");
+        }
+    }
 }
 
