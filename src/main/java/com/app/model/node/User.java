@@ -1,4 +1,4 @@
-package com.app.model;
+package com.app.model.node;
 
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
@@ -17,7 +17,7 @@ public class User {
     private Long id;
 
     @Property(name = "app_id")
-    //Fot this application
+    //For this application
     private Long appid;
     @Property(name = "username")
     private String username;

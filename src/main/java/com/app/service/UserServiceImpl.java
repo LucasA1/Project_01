@@ -1,13 +1,11 @@
 package com.app.service;
 
-import com.app.model.User;
+import com.app.model.node.User;
 import com.app.service.interfaces.UserService;
 import com.app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 /**

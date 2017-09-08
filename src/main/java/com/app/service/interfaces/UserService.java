@@ -1,9 +1,8 @@
 package com.app.service.interfaces;
 
-import com.app.model.User;
+import com.app.model.node.User;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Map;
 
 /**

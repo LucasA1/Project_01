@@ -1,6 +1,6 @@
 package com.app.controller;
 
-import com.app.model.User;
+import com.app.model.node.User;
 import com.app.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
