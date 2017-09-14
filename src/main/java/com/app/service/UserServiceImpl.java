@@ -33,6 +33,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User createUser(Map<String, Object> userJson) throws Exception {
         User userToCreate = new User();
+        userToCreate.setAppid(userRepository.getNewUserAppId());
         try {
             parseUserJson(userJson, userToCreate);
         } catch (Exception ex){

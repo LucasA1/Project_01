@@ -14,4 +14,9 @@ public interface UserRepository extends GraphRepository<User> {
 
     @Query("MATCH (user:User) WHERE user.app_id = {app_id} RETURN user")
     User findUserByAppid(@Param("app_id") Long app_id);
+
+    @Query("MATCH(generator:UserIdGenerator) " +
+            "WHERE generator.GeneratorKey = 'UserIdGenerator' " +
+            "SET generator.Count = generator.Count + 1 RETURN generator.Count")
+    Long getNewUserAppId();
 }
