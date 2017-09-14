@@ -1,13 +1,11 @@
 package com.app.service;
 
-import com.app.model.User;
+import com.app.model.node.User;
 import com.app.service.interfaces.UserService;
 import com.app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -24,8 +22,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User findUserByAppId(Long app_id) throws Exception {
+        try {
+           return userRepository.findUserByAppid(app_id);
+        } catch (Exception ex) {
+            throw new Exception(ex.getMessage());
+        }
+    }
+
+    @Override
     public User createUser(Map<String, Object> userJson) throws Exception {
         User userToCreate = new User();
+        userToCreate.setAppid(userRepository.getNewUserAppId());
         try {
             parseUserJson(userJson, userToCreate);
         } catch (Exception ex){
@@ -36,8 +44,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User updateUser(Map<String, Object> updateJson, Long userId) throws Exception {
-//        User userToUpdate = findById(userId);
-        User userToUpdate = new User();
+        User userToUpdate = findUserByAppId(userId);
         try {
             parseUserJson(updateJson, userToUpdate);
         } catch (Exception ex){
@@ -72,8 +79,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User deleteUser(Long userId) throws Exception{
-//        User userToDelete = findById(userId);
-        User userToDelete = new User();
+        User userToDelete = findUserByAppId(userId);
         if(userToDelete != null){
             try {
                 userRepository.delete(userToDelete);

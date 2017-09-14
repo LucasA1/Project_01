@@ -1,4 +1,4 @@
-package com.app.model;
+package com.app.model.node;
 
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;

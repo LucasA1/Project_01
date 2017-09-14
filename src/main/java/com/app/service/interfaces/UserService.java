@@ -1,9 +1,8 @@
 package com.app.service.interfaces;
 
-import com.app.model.User;
+import com.app.model.node.User;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -11,6 +10,8 @@ import java.util.Map;
  */
 @Service
 public interface UserService {
+
+    User findUserByAppId(Long app_id) throws Exception;
 
     User createUser(Map<String, Object> userJson) throws Exception;
 

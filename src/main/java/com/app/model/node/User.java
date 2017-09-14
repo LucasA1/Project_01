@@ -1,14 +1,8 @@
-package com.app.model;
+package com.app.model.node;
 
-import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import org.neo4j.ogm.annotation.GraphId;
-import org.neo4j.ogm.annotation.Labels;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Property;
-import org.springframework.data.annotation.Id;
-
-import javax.annotation.Generated;
-import javax.persistence.*;
 
 
 /**
@@ -22,16 +16,16 @@ public class User {
     //For Neo4j
     private Long id;
 
-    @Property
-    //Fot this application
+    @Property(name = "app_id")
+    //For this application
     private Long appid;
-    @Property
+    @Property(name = "username")
     private String username;
-    @Property
+    @Property(name = "fullname")
     private String fullname;
-    @Property
+    @Property(name = "role")
     private String role;
-    @Property
+    @Property(name = "password")
     private String password;
 
     public User() {
